@@ -1,14 +1,13 @@
 const fs = require('fs')
 const path = require('path')
 
-const prettierOptions = JSON.parse(
-    fs.readFileSync(path.resolve(__dirname, '.prettierrc'), 'utf8'),
-)
+const prettierOptions = JSON.parse(fs.readFileSync(path.resolve(__dirname, '.prettierrc'), 'utf8'))
 
 module.exports = {
-    extends: ['airbnb', 'prettier'],
+    extends: ['prettier', 'eslint:recommended', 'plugin:react/recommended'],
     plugins: ['prettier'],
     env: {
+        browser: true,
         node: true,
         es6: true,
     },
@@ -20,6 +19,7 @@ module.exports = {
         },
     },
     rules: {
+        'react/prop-types': [0],
         'prettier/prettier': ['error', prettierOptions],
         'arrow-body-style': [2, 'as-needed'],
         'class-methods-use-this': 0,
@@ -29,7 +29,6 @@ module.exports = {
         'import/no-dynamic-require': 0,
         'import/no-extraneous-dependencies': 0,
         'import/no-named-as-default': 0,
-        'import/no-unresolved': 2,
         'import/no-webpack-loader-syntax': 0,
         'import/prefer-default-export': 0,
         indent: [
