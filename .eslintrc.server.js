@@ -7,7 +7,6 @@ module.exports = {
     extends: ['prettier', 'eslint:recommended'],
     plugins: ['prettier'],
     env: {
-        browser: true,
         node: true,
         es6: true,
     },
@@ -19,7 +18,6 @@ module.exports = {
         },
     },
     rules: {
-        'react/prop-types': [0],
         'prettier/prettier': ['error', prettierOptions],
         'arrow-body-style': [2, 'as-needed'],
         'class-methods-use-this': 0,
